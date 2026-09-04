@@ -1,0 +1,2 @@
+# java syllabus
+- Data types

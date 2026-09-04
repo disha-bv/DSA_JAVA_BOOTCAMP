@@ -1,0 +1,31 @@
+package DAY10.SESSION1;
+
+import java.util.Arrays;
+import java.util.Stack;
+
+public class NextGreaterElement {
+    public static int[] nextGreater(int[] nums){
+        int  n = nums.length;
+        int[] result = new int[n];
+        Arrays.fill(result,-1);
+        Stack<Integer>stack = new Stack<>();
+        for(int i=0 ; i<n ; i++){
+            while(!stack.isEmpty() && nums[stack.peek()]<nums[i]){
+                int index = stack.pop();
+                result[index] = nums[i];
+            }
+            stack.push(i);
+        }
+        return result;
+
+    }
+    public static void main(String[] args){
+        int[] nums = {1,2,1};
+        int[] result = nextGreater(nums);
+        for(int i=0 ; i<result.length ; i++){
+            System.out.println(result[i]);
+        }
+
+
+    }
+}
